@@ -66,6 +66,16 @@
   resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-9.2.0.tgz#f3933a44e365864f4dad5db94158106d511e8131"
   integrity sha512-sqKVVVOe5ivCaXDWivIJYVSaEgdQK9ul7a4Kity5Iw7u9+wBAPbX1RMSnLLmp7O4Vzj0WOWwMAJsTL00xwaNug==
 
+"@headlessui/react@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.4.0.tgz#c6d424d8ab10ac925e4423d7f3cbab02c30d736a"
+  integrity sha512-C+FmBVF6YGvqcEI5fa2dfVbEaXr2RGR6Kw1E5HXIISIZEfsrH/yuCgsjWw5nlRF9vbCxmQ/EKs64GAdKeb8gCw==
+
+"@heroicons/react@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@heroicons/react/-/react-1.0.3.tgz#4dae106c6019e3250e36401b55b599ad41a68273"
+  integrity sha512-wdzWbDiFKzeL6xFJsgY2PqvDkx4hFmQDpEFRVj872EA71XOjr8g0DQj5rHWm0y7LwfGOFL0eQmEiMbTyGNOnTQ==
+
 "@next/env@11.0.1":
   version "11.0.1"
   resolved "https://registry.yarnpkg.com/@next/env/-/env-11.0.1.tgz#6dc96ac76f1663ab747340e907e8933f190cc8fd"
@@ -654,6 +664,11 @@ cssnano-simple@2.0.0:
   integrity sha512-0G3TXaFxlh/szPEG/o3VcmCwl0N3E60XNb9YZZijew5eIs6fLjJuOPxQd9yEBaX2p/YfJtt49i4vYi38iH6/6w==
   dependencies:
     cssnano-preset-simple "^2.0.0"
+
+daisyui@^1.10.0:
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-1.10.0.tgz#4b9ff90313339a21e93a4009c61f424bd75d080f"
+  integrity sha512-rpmcOXpRG7upsjNx6krswKi6MfvMZSKRMqTrYvDUkE/xv07tc0LgeizcIUqbE1AfPSLLztmW+1NNnmv0kexlzQ==
 
 data-uri-to-buffer@3.0.1:
   version "3.0.1"
@@ -1490,7 +1505,7 @@ node-emoji@^1.8.1:
   dependencies:
     lodash.toarray "^4.4.0"
 
-node-fetch@2.6.1:
+node-fetch@2.6.1, node-fetch@^2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.1.tgz#045bd323631f76ed2e2b55573394416b639a0052"
   integrity sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw==
@@ -2292,6 +2307,11 @@ tailwindcss@^2.2.4:
     reduce-css-calc "^2.1.8"
     resolve "^1.20.0"
     tmp "^0.2.1"
+
+theme-change@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/theme-change/-/theme-change-2.0.2.tgz#142aa0669fde5ca7e625f5d3c09074ebb5bdb374"
+  integrity sha512-YvQqavf8nlGB3J7PdO0zLLhSLlgYhrqZL6By3FuzFIlWBsPTSPG/V98cHJllK3mmU97Jecei8XYiHalhy2umUw==
 
 timers-browserify@2.0.12, timers-browserify@^2.0.4:
   version "2.0.12"
