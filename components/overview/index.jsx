@@ -8,10 +8,10 @@ const Overview = ({ weatherData, unitIsF, onUnitIsFChange }) => {
 
   return (
     weatherData && (
-      <div className="grid justify-center">
+      <div className="grid justify-center mx-5">
         <div className="flex items-center mx-auto text-center">
           <Image
-            src={`/icons/${weatherData.list[0].weather[0].icon}.png`}
+            src={`/icons/${weatherData?.list[0].weather[0].icon}.png`}
             width={100}
             height={100}
           />
@@ -20,17 +20,17 @@ const Overview = ({ weatherData, unitIsF, onUnitIsFChange }) => {
             onClick={onUnitIsFChange}
           >
             {unitIsF
-              ? weatherData.list[0].main.temp + "° F"
-              : c(weatherData.list[0].main.temp) + "° C"}
+              ? weatherData?.list[0].main.temp + "° F"
+              : c(weatherData?.list[0].main.temp) + "° C"}
           </span>
         </div>
         <div className="flex justify-center flex-row w-full">
           <div>
-            <p className="text-2xl font-montserrat font-bold">
-              {weatherData.city.name}, {weatherData.city.country}
+            <p className="text-lg md:text-2xl font-montserrat font-bold">
+              {weatherData?.city.name}, {weatherData?.city.country}
             </p>
             <p className="text-gray-600 text-center">
-              {weatherData.list[0].weather[0].main}
+              {weatherData?.list[0].weather[0].main}
             </p>
           </div>
           <div className="divider divider-vertical"></div>
@@ -38,11 +38,11 @@ const Overview = ({ weatherData, unitIsF, onUnitIsFChange }) => {
             <p className="text-gray-600">
               Feels like{" "}
               {unitIsF
-                ? weatherData.list[0].main.feels_like + "° F"
-                : c(weatherData.list[0].main.feels_like) + "° C"}
+                ? weatherData?.list[0].main.feels_like + "° F"
+                : c(weatherData?.list[0].main.feels_like) + "° C"}
             </p>
             <p className="text-gray-600">
-              {weatherData.list[0].main.humidity}% Humid
+              {weatherData?.list[0].main.humidity}% Humid
             </p>
           </div>
         </div>

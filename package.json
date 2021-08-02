@@ -8,16 +8,19 @@
   "dependencies": {
     "@headlessui/react": "^1.4.0",
     "@heroicons/react": "^1.0.3",
+    "axios": "^0.21.1",
     "daisyui": "^1.10.0",
     "next": "latest",
     "node-fetch": "^2.6.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "theme-change": "^2.0.2"
+    "theme-change": "^2.0.2",
+    "three-dots": "^0.2.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.6",
     "postcss": "^8.3.5",
-    "tailwindcss": "^2.2.4"
+    "tailwindcss": "^2.2.4",
+    "tailwindcss-pseudo-elements": "^2.0.0"
   }
 }

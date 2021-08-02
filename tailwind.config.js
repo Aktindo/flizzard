@@ -14,7 +14,20 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [require("daisyui")],
+  plugins: [
+    require("daisyui"),
+    require("tailwindcss-pseudo-elements"),
+    require("tailwindcss-pseudo-elements")(({ addUtilities }) => {
+      const newUtilities = {
+        ".empty-content": {
+          content: "''",
+        },
+      };
+      addUtilities(newUtilities, {
+        variants: ["before", "after"],
+      });
+    }),
+  ],
   daisyui: {
     themes: [
       {

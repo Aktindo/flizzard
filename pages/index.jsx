@@ -1,8 +1,8 @@
 import Head from "next/head";
-import fetch from "node-fetch";
+import axios from "axios";
 
 import { useEffect, useState } from "react";
-import { themeChange } from "theme-change";
+import "three-dots/dist/three-dots.css";
 
 import {
   Navbar,
@@ -11,27 +11,44 @@ import {
   DayCards,
   SunRiseSet,
   Footer,
+  Toast,
 } from "../components";
 
 export default function Home() {
   const [place, setPlace] = useState("New York, US");
   const [weatherData, setWeatherData] = useState(null);
   const [unitIsF, setUnitIsF] = useState(true);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
-  const fetchWeatherData = async () => {
-    const res = await fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?q=${place}&cnt=7&appid=767dfd4a2eb69186afb682238a23a519&units=imperial`
-    );
-    const data = await res.json();
-    setWeatherData(data);
+  const fetchWeatherData = (place) => {
+    axios
+      .get(
+        `https://api.openweathermap.org/data/2.5/forecast?q=${place}&cnt=7&appid=${process.env.NEXT_PUBLIC_OPEN_WEATHER_API_KEY}&units=imperial`
+      )
+      .then(({ data }) => {
+        setPlace(place);
+        setWeatherData(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        if (err.message.includes("404")) {
+          setPlace("New York, US");
+          setError(true);
+        }
+
+        setLoading(false);
+        setTimeout(() => {
+          setError(false);
+        }, 5000);
+      });
   };
 
   useEffect(() => {
-    themeChange(false);
-    fetchWeatherData();
+    fetchWeatherData(place);
   }, []);
 
-  return (
+  return !loading ? (
     <>
       <Head>
         <title>Home | Flizzard</title>
@@ -44,11 +61,14 @@ export default function Home() {
           rel="stylesheet"
         />
       </Head>
-      <div className="app text-base-content font-inter">
+      <div className="app text-base-content font-inter overflow-x-hidden">
         <Navbar />
         <Search
-          onChange={(e) => setPlace(e.target.value)}
-          onConfirm={async () => await fetchWeatherData()}
+          onChange={(value) => setPlace(value)}
+          onConfirm={(value) => {
+            fetchWeatherData(value);
+            console.log(value);
+          }}
         />
         <Overview
           weatherData={weatherData}
@@ -60,8 +80,19 @@ export default function Home() {
           sunset={weatherData?.city.sunset}
         />
         <DayCards weatherData={weatherData} unitIsF={unitIsF} />
+        {error && (
+          <Toast title="Error" type="error">
+            There was an error while fetching that place!
+          </Toast>
+        )}
       </div>
       <Footer />
     </>
+  ) : (
+    <div className="h-screen flex justify-center items-center">
+      <div className="bg-primary p-2 w-4 h-4 rounded-full animate-bounce mx-1"></div>
+      <div className="bg-primary p-2 w-4 h-4 rounded-full animate-bounce mx-1"></div>
+      <div className="bg-primary p-2 w-4 h-4 rounded-full animate-bounce mx-1"></div>
+    </div>
   );
 }

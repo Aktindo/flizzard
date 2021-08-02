@@ -31,16 +31,15 @@ const DayCards = ({ weatherData, unitIsF }) => {
 
   return (
     <div className="day-cards grid lg:grid-cols-7 md:grid-cols-3 grid-cols-2 justify-center mx-5 my-10">
-      {weatherData &&
-        weatherData.list.map((item, index) => (
-          <DayCard
-            key={`daycard-${index}`}
-            day={item}
-            index={index}
-            days={days}
-            unitIsF={unitIsF}
-          />
-        ))}
+      {weatherData?.list.map((item, index) => (
+        <DayCard
+          key={`daycard-${index}`}
+          day={item}
+          index={index}
+          days={days}
+          unitIsF={unitIsF}
+        />
+      ))}
     </div>
   );
 };

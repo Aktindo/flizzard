@@ -2,6 +2,7 @@ import { Fragment, useEffect } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { RefreshIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import Image from "next/image";
+import Link from "next/link";
 import Router from "next/router";
 import { themeChange } from "theme-change";
 
@@ -10,7 +11,7 @@ function classNames(...classes) {
 }
 
 const Navbar = () => {
-  const navigation = [{ name: "About", href: "/about" }];
+  const navigation = [{ name: "Home", href: "/" }];
 
   useEffect(() => {
     themeChange(false);
@@ -77,7 +78,7 @@ const Navbar = () => {
           <Disclosure.Panel className="sm:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navigation.map((item) => (
-                <a
+                <Link
                   key={item.name}
                   href={item.href}
                   className={classNames(
@@ -88,8 +89,8 @@ const Navbar = () => {
                   )}
                   aria-current={item.current ? "page" : undefined}
                 >
-                  {item.name}
-                </a>
+                  <a>{item.name}</a>
+                </Link>
               ))}
             </div>
           </Disclosure.Panel>
